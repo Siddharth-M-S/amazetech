@@ -10,7 +10,7 @@ AFFILIATE_TAG = "blacksidtech-21"
 AMAZON_DOMAINS = [
     "amazon.com", "amazon.co.uk", "amazon.ca", "amazon.com.au",
     "amazon.de", "amazon.fr", "amazon.it", "amazon.es", "amazon.co.jp",
-    "amazon.in", "amzn.to", "amzn.com"
+    "amazon.in", "amzn.to", "amzn.com", "amzn.in"
 ]
 
 
@@ -37,7 +37,7 @@ def inject_affiliate_tag(url: str, tag: str) -> str:
     # Expand short URLs first
     parsed_check = urlparse(url)
     domain = parsed_check.netloc.lower().replace("www.", "")
-    if "amzn.to" in domain or "amzn.com" in domain:
+    if "amzn.to" in domain or "amzn.com" in domain or "amzn.in" in domain:
         url = expand_short_url(url)
 
     parsed = urlparse(url)
